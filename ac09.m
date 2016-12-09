@@ -27,8 +27,8 @@ if ind<=length(S)
 end
 
 resultat1 = lenTot
-
-resultat2 = num2str(ac09_getLengthRec(S))
+ouResultat1 = num2str(ac09_getLengthRec(S,1))
+resultat2 = num2str(ac09_getLengthRec(S,2))
 
 
 
