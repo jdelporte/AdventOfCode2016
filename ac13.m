@@ -7,18 +7,15 @@ target = [31 39]+1;
 
 n=50;
 T=zeros(n);
-H=zeros(n);
-G=zeros(n);
 
 for x=0:n-1
   for y=0:n-1
     T(x+1,y+1)=mod(sum(length(find(dec2bin(x*x + 3*x + 2*x*y + y + y*y+code)=='1'))),2);
-    H(x+1,y+1)=abs(x+1-target(1))+abs(y+1-target(2));
-    G(x+1,y+1)=abs(x+1-origin(1))+abs(y+1-origin(2));
   end
 end
 
 [cpt,visited]=ac13_solve(T,origin,target,200);
+visited;
 resultat1 = cpt
 [cpt,visited]=ac13_solve(T,origin,target,50);
 resultat2 = size(visited,1)
