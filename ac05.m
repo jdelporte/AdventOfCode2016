@@ -30,5 +30,5 @@ for i=inds
   end
 end
 
-resultat1 = password1
+resultat1 = steps
 resultat2 = password2
