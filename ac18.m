@@ -2,17 +2,25 @@ clear all
 s = textread('ac18_data.txt','%s'){1};
 %s ='.^^.^.^^^^';
 
-n=400000;
-T=zeros(length(s),n);
-T(:,1) = double(s=='^')';
-
+n=40;
+tiles = double(s=='^')';
+resultat1 = sum(tiles==0);
 for i=2:n
   %il suffit que celui de gauche soit différent de celui de droite
-  T(:,i) = abs(diff(abs(diff([0;T(:,i-1);0]))));  
+  tiles = abs(diff(abs(diff([0;tiles;0]))));  
+  resultat1 = resultat1 + sum(tiles==0);
 end
+resultat1
 
-resultat1 = sum(sum(T(:,1:40)==0))
-resultat2 = sum(sum(T==0))
+n=400000;
+tiles = double(s=='^')';
+resultat2 = sum(tiles==0);
+for i=2:n
+  %il suffit que celui de gauche soit différent de celui de droite
+  tiles = abs(diff(abs(diff([0;tiles;0]))));  
+  resultat2 = resultat2 + sum(tiles==0);
+end
+resultat2 
 
 
 
